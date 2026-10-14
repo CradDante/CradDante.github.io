@@ -18,24 +18,35 @@ document.addEventListener('keydown', event => {
   }
 });
 
-const dialog = document.querySelector('.art-dialog');
-const dialogImage = dialog.querySelector('.dialog-image');
-document.querySelectorAll('.image-open').forEach(button => {
-  button.addEventListener('click', () => {
-    dialogImage.src = button.dataset.image;
-    dialogImage.alt = button.dataset.title;
-    document.querySelector('#dialog-title').textContent = button.dataset.title;
-    document.querySelector('#dialog-description').textContent = button.dataset.description;
-    const download = dialog.querySelector('.download-link');
-    download.href = button.dataset.image;
-    download.download = button.dataset.image.split('/').pop();
-    dialog.showModal();
-    document.body.classList.add('modal-open');
+
+const musicPlayer = document.querySelector('.music-player');
+const musicAudio = musicPlayer.querySelector('audio');
+const musicStatus = musicPlayer.querySelector('.music-status');
+musicAudio.addEventListener('play', () => {
+  musicPlayer.classList.add('is-playing');
+  musicStatus.textContent = '正在播放《荒》 · 徐大圣的 AI 音乐';
+});
+musicAudio.addEventListener('pause', () => {
+  musicPlayer.classList.remove('is-playing');
+  musicStatus.textContent = '已暂停，随时继续收听。';
+});
+musicAudio.addEventListener('ended', () => {
+  musicPlayer.classList.remove('is-playing');
+  musicStatus.textContent = '《荒》播放完毕，感谢收听。';
+});
+musicAudio.addEventListener('error', () => {
+  musicPlayer.classList.remove('is-playing');
+  musicStatus.textContent = '音乐暂时无法加载，请稍后重试。';
+});
+const musicStart = musicPlayer.querySelector('.music-start');
+musicStart.addEventListener('click', () => {
+  musicAudio.play().catch(() => {
+    musicStatus.textContent = '播放失败，请检查网络后重试。';
   });
 });
-dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
-dialog.addEventListener('click', event => {
-  const bounds = dialog.getBoundingClientRect();
-  if (event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) dialog.close();
+musicAudio.addEventListener('play', () => { musicStart.hidden = true; });
+musicAudio.play().catch(() => {
+  if (musicAudio.error) return;
+  musicStatus.textContent = '浏览器已暂停自动播放，点击下方按钮收听。';
+  musicStart.hidden = false;
 });
-dialog.addEventListener('close', () => document.body.classList.remove('modal-open'));

@@ -7,8 +7,8 @@
   <meta name="description" content="徐大圣创作小站。让武侠的浪漫、深海的未知与像素的想象，在这里相遇。">
   <title>徐大圣创作小站</title>
   <link rel="icon" href="assets/emblem.png" type="image/png">
-  <link rel="stylesheet" href="style.css?v=1">
-  <script src="app.js?v=1" defer></script>
+  <link rel="stylesheet" href="style.css?v=3">
+  <script src="app.js?v=3" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到正文</a>
@@ -28,16 +28,16 @@
       <div class="hero-copy">
         <p class="eyebrow"><span class="small-star" aria-hidden="true">✦</span> 一个属于徐大圣的想象世界</p>
         <h1 id="hero-title">心有江湖，<br><em>目及深海。</em></h1>
-        <p class="hero-intro">执一点侠气，赴一场未知。<br>让武侠的浪漫、深海的奇想，<br class="desktop-break">在一格一格的像素里相遇。</p>
+        <p class="hero-intro">执一点侠气，赴一场未知。<br>让武侠的浪漫、深海的奇想，<br class="desktop-break">在奇思妙想里相遇。</p>
         <div class="hero-actions"><a class="button" href="#archive">进入我的世界 <span aria-hidden="true">↗</span></a><a class="text-link" href="#about">认识徐大圣 <span aria-hidden="true">→</span></a></div>
-        <div class="coordinates"><span>01 / 武侠</span><i></i><span>02 / 克苏鲁</span><i></i><span>03 / 像素</span></div>
+        <div class="coordinates"><span>01 / 游戏</span><i></i><span>02 / AI 音乐</span></div>
       </div>
       <div class="hero-art">
         <div class="art-meta"><span>CHARACTER FILE / 001</span><span>徐 · 大 · 圣</span></div>
-        <button class="portrait-frame image-open" data-image="assets/portrait.png" data-title="徐大圣 · 人物形象" data-description="红色飘带与侧边玉饰、肩后的长兵器与深海触须，共同构成徐大圣的个人形象。" aria-label="放大查看徐大圣人物形象">
+        <div class="portrait-frame">
           <img class="portrait" src="assets/portrait.png" alt="黑发红带的青年侠客，肩后有长兵器，身旁浮现青绿色触须" width="1254" height="1254" fetchpriority="high">
-          <span class="zoom-hint" aria-hidden="true">↗</span>
-        </button>
+          
+        </div>
         <div class="seal"><img src="assets/emblem.png" alt="剑、月轮与触须组成的创作小站徽记" width="112" height="112"><span>心游太虚<br><b>剑照深海</b></span></div>
         <div class="art-caption"><span>有一点桀骜，也有一点好奇。</span><span aria-hidden="true">✦</span></div>
       </div>
@@ -46,11 +46,14 @@
     <div class="threshold wrap"><span>江湖不止眼前，想象没有边界。</span><a href="#archive" aria-label="向下浏览作品集">向下探索 <span aria-hidden="true">↓</span></a></div>
 
     <section class="archive wrap" id="archive" aria-labelledby="archive-title">
-      <div class="section-heading"><div><p class="eyebrow">01 — SELECTED WORKS</p><h2 id="archive-title">我的作品集<span class="title-dot">。</span></h2></div><p>故事正在酝酿。<br>新的作品，将在这里与你见面。</p></div>
+      <div class="section-heading"><div><p class="eyebrow">01 — SELECTED WORKS</p><h2 id="archive-title">我的作品集<span class="title-dot"></span></h2></div><p>游戏与 AI 音乐，<br>让想象成为可以体验的作品。</p></div>
       <div class="gallery">
-        <article class="art-card">
-          <div class="work-placeholder"><span class="image-index">WORK / 01</span><span class="work-symbol" aria-hidden="true">✦</span><p>下一段江湖，正在落笔。<small>COMING SOON</small></p><span class="image-label">作品预留</span></div>
-          <div class="card-caption"><div><h3>未完待续</h3><p>留给即将完成的作品。</p></div><span>敬请期待</span></div>
+        <article class="art-card game-card">
+          <!-- 跳转地址预留：有游戏链接后，在下方 a 标签添加 href="完整游戏网址"，并删除 aria-disabled 属性。 -->
+          <a class="gallery-image game-cover" id="hanwudi-link" aria-disabled="true" aria-label="焊武帝：赛博义体大乱斗，游戏链接待开放">
+            <span class="image-index">WORK / 01</span><img src="assets/hanwudi.png" alt="焊武帝：赛博义体大乱斗游戏封面，赛博义体老者与霓虹武器" width="1254" height="1254" loading="lazy"><span class="image-label">GAME / 游戏</span>
+          </a>
+          <div class="card-caption"><div><h3>《焊武帝：赛博义体大乱斗》</h3><p>游戏作品</p></div><span>链接待开放</span></div>
         </article>
         <article class="art-card">
           <div class="work-placeholder work-placeholder-sea"><span class="image-index">WORK / 02</span><span class="work-symbol" aria-hidden="true">◇</span><p>深海的回声，即将抵达。<small>COMING SOON</small></p><span class="image-label">作品预留</span></div>
@@ -61,19 +64,31 @@
 
 <section class="about wrap" id="about" aria-labelledby="about-title">
       <div class="about-emblem"><img src="assets/emblem.png" alt="徐大圣创作小站徽记" width="240" height="240" loading="lazy"></div>
-      <div class="about-copy"><p class="eyebrow">02 — ABOUT ME</p><h2 id="about-title">我是徐大圣。<br>欢迎来到我的小江湖。</h2><p>喜欢武侠的洒脱，也着迷于克苏鲁的神秘。这个创作小站，收集属于我的形象、偏好与想象。</p><p>希望在像素与故事之间，慢慢长出一个有自己性格的世界。</p><a class="text-link" href="#archive">去看看我的作品集 <span aria-hidden="true">↗</span></a></div>
+      <div class="about-copy"><p class="eyebrow">02 — ABOUT ME</p><h2 id="about-title">我是徐大圣。<br>欢迎来到我的小江湖。</h2><p>我主要进行游戏与 AI 音乐创作。这个小站，记录我的创作过程，也分享逐渐成形的作品。</p><p>希望用游戏搭建可以探索的世界，用音乐表达故事与情绪，让想象以不同的方式被体验。</p><a class="text-link" href="#archive">去看看我的作品集 <span aria-hidden="true">↗</span></a></div>
     </section>
   </main>
 
   <footer class="footer wrap"><div><strong>徐大圣创作小站</strong><span>像素之间，自成江湖。</span></div><a href="#top">回到页首 ↑</a></footer>
 
-  <dialog class="art-dialog" aria-labelledby="dialog-title">
-    <button class="dialog-close" aria-label="关闭大图">×</button>
-    <img class="dialog-image" alt="">
-    <div class="dialog-info"><div><h2 id="dialog-title"></h2><p id="dialog-description"></p></div><a class="download-link" download>下载图片 ↓</a></div>
-  </dialog>
+
+  <aside class="music-widget" aria-label="徐大圣创作的 AI 音乐">
+    <details class="music-player" open>
+      <summary><span class="music-note" aria-hidden="true">♫</span><span>听一首《荒》<small>徐大圣的 AI 音乐</small></span><span class="music-chevron" aria-hidden="true">⌃</span></summary>
+      <div class="music-body">
+        <div class="music-track"><span class="music-disc" aria-hidden="true">荒</span><div><h2>荒</h2><p>徐大圣 · AI 音乐创作</p></div></div>
+        <audio controls autoplay preload="auto" aria-label="播放徐大圣创作的 AI 音乐《荒》" src="assets/huang.mp3">你的浏览器不支持音频播放，可<a href="assets/huang.mp3">打开《荒》</a>收听。</audio><button class="music-start" type="button" hidden>▶ 播放《荒》</button>
+        <p class="music-status" aria-live="polite">正在准备播放《荒》……</p>
+      </div>
+    </details>
+  </aside>
 </body>
 </html>
+
+
+
+
+
+
 
 
 
