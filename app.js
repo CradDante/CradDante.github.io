@@ -20,29 +20,30 @@ document.addEventListener('keydown', event => {
 
 
 const musicPlayer = document.querySelector('.music-player');
-const musicAudio = musicPlayer.querySelector('audio');
-const musicStatus = musicPlayer.querySelector('.music-status');
-musicAudio.addEventListener('play', () => {
-  musicPlayer.classList.add('is-playing');
-  musicStatus.textContent = '正在播放《荒》 · 徐大圣的 AI 音乐';
-});
-musicAudio.addEventListener('pause', () => {
-  musicPlayer.classList.remove('is-playing');
-  musicStatus.textContent = '已暂停，随时继续收听。';
-});
-musicAudio.addEventListener('ended', () => {
-  musicPlayer.classList.remove('is-playing');
-  musicStatus.textContent = '《荒》播放完毕，感谢收听。';
-});
-musicAudio.addEventListener('error', () => {
-  musicPlayer.classList.remove('is-playing');
-  musicStatus.textContent = '音乐暂时无法加载，请稍后重试。';
-});
-const musicStart = musicPlayer.querySelector('.music-start');
-musicStart.addEventListener('click', () => {
-  musicAudio.play().catch(() => {
-    musicStatus.textContent = '播放失败，请检查网络后重试。';
+const musicAudio = musicPlayer?.querySelector('audio');
+const musicStatus = musicPlayer?.querySelector('.music-status');
+const musicStart = musicPlayer?.querySelector('.music-start');
+if (musicAudio && musicStatus) {
+  musicAudio.addEventListener('play', () => {
+    musicPlayer.classList.add('is-playing');
+    musicStatus.textContent = '正在播放《荒》 · 徐大圣的 AI 音乐';
+    if (musicStart) musicStart.hidden = true;
   });
-});
-musicAudio.addEventListener('play', () => { musicStart.hidden = true; });
-
+  musicAudio.addEventListener('pause', () => {
+    musicPlayer.classList.remove('is-playing');
+    musicStatus.textContent = '已暂停，随时继续收听。';
+  });
+  musicAudio.addEventListener('ended', () => {
+    musicPlayer.classList.remove('is-playing');
+    musicStatus.textContent = '《荒》播放完毕，感谢收听。';
+  });
+  musicAudio.addEventListener('error', () => {
+    musicPlayer.classList.remove('is-playing');
+    musicStatus.textContent = '音乐暂时无法加载，请检查音频文件是否已上传。';
+  });
+  musicStart?.addEventListener('click', () => {
+    musicAudio.play().catch(() => {
+      musicStatus.textContent = '播放失败，请检查网络后重试。';
+    });
+  });
+}
