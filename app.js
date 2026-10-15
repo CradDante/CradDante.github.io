@@ -45,8 +45,4 @@ musicStart.addEventListener('click', () => {
   });
 });
 musicAudio.addEventListener('play', () => { musicStart.hidden = true; });
-musicAudio.play().catch(() => {
-  if (musicAudio.error) return;
-  musicStatus.textContent = '浏览器已暂停自动播放，点击下方按钮收听。';
-  musicStart.hidden = false;
-});
+
